@@ -1,0 +1,32 @@
+language: python
+python:
+  - '3.4'
+  - '3.5'
+  - '3.6'
+
+branches:
+  only:
+  - master
+  - dev
+  - /^fix-.*$/
+  - /^feature-.*$/
+
+install:
+  # -e is important for coverage report
+  - pip install -e .[dev]
+
+script:
+  - py.test --cov-report term-missing --cov=seismanpy -vs tests/
+  - codecov
+
+after_success:
+  - cd docs && make html && cd ..
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: ${GH_TOKEN}
+  local_dir: docs/_build/html
+  on:
+    branch: master
+    python: '3.6'
