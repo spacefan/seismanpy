@@ -29,7 +29,7 @@ setup(
     license='MIT',
 
     packages=['seismanpy'],
-    install_requires=["obspy>=1.0.3"],
+    install_requires=[],
     extras_require={
         'dev': [
             "sphinx_rtd_theme",
