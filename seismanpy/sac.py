@@ -18,7 +18,7 @@ def read_sac(pathname, starttime='b+0', endtime='e+0', **kwargs):
 def cut_sac(st, starttime='b+0', endtime='e+0'):
     '''Cut stream with specified time window.
 
-    >>> st = read("test.sac")  # doctest: + SKIP
+    >>> st = read("test.sac")  # doctest: +SKIP
     >>> st2 = cut_sac(st, 't0-10', 't0+10')  # doctest: +SKIP
 
     '''
