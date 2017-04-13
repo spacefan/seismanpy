@@ -43,6 +43,7 @@ def cut_sac(st, starttime='b+0', endtime='e+0'):
 
     return st2
 
+
 def _check_tmark(tmark):
     '''Check validity of SAC time markers.
 
@@ -101,6 +102,7 @@ def _parse_time(value):
         pass
 
     raise ValueError("Unknown relative time format {}.".format(value))
+
 
 if __name__ == "__main__":
     import doctest
