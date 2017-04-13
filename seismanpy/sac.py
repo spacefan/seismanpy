@@ -72,18 +72,35 @@ def _parse_time(value):
 
     >>> _parse_time('T3-5.5')
     ('T3', -5.5)
+
+    >>> _parse_time('T11-5')
+    Traceback (most recent call last):
+    ...
+    ValueError: Unknown relative time format T11-5.
+
+    >>> _parse_time('C+5')
+    Traceback (most recent call last):
+    ...
+    ValueError: Unknown relative time format C+5.
     '''
 
-    if '+' in value:  # tmark + positive offset
+    # tmark + positive offset
+    try:
         tmark, offset = value.split('+')
         if _check_tmark(tmark):
             return tmark, float(offset)
-    elif '-' in value:  # tmark + negative offset
+    except ValueError:
+        pass
+
+    # tmark - negative offset
+    try:
         tmark, offset = value.split('-')
         if _check_tmark(tmark):
             return tmark, -float(offset)
-    else:
-        raise ValueError("Unknown relative time format.")
+    except ValueError:
+        pass
+
+    raise ValueError("Unknown relative time format {}.".format(value))
 
 if __name__ == "__main__":
     import doctest
