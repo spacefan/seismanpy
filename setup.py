@@ -32,6 +32,7 @@ setup(
     install_requires=[],
     extras_require={
         'dev': [
+            "sphinx",
             "sphinx_rtd_theme",
             "codecov",
             "coverage",
