@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 import os
 
+import pytest
+
 from obspy import read
 from seismanpy.sac import read_sac, cut_sac
 
@@ -14,6 +16,12 @@ class TestSACClass:
         st = read_sac(os.path.join(path, "ca*.z"), 'a-1', 'a+2')
         assert st[0].stats.npts == 296
         assert st[1].stats.npts == 296
+
+    def test_read_sac_undefined_tmark(self):
+        with pytest.raises(KeyError):
+            st = read_sac(os.path.join(path, "ca*.z"), 't0-1', 'a+2')
+        with pytest.raises(KeyError):
+            st = read_sac(os.path.join(path, "ca*.z"), 'a-1', 't1+2')
 
     def test_cut_sac(self):
         st = read(os.path.join(path, "ca*.z"))

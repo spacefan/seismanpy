@@ -29,12 +29,19 @@ def cut_sac(st, starttime='b+0', endtime='e+0'):
     st2 = Stream()
     for tr in st:
         reftime = get_sac_reftime(tr.stats.sac)
-        start = reftime + tr.stats.sac[tmark0] + offset0
-        end = reftime + tr.stats.sac[tmark1] + offset1
+        try:
+            start = reftime + tr.stats.sac[tmark0] + offset0
+        except KeyError:
+            msg = "{}: time marker {} undefined".format(tr.id, tmark0)
+            raise KeyError(msg)
+        try:
+            end = reftime + tr.stats.sac[tmark1] + offset1
+        except KeyError:
+            msg = "{}: time marker {} undefined".format(tr.id, tmark1)
+            raise KeyError(msg)
         st2 += tr.slice(start, end)
 
     return st2
-
 
 def _check_tmark(tmark):
     '''Check validity of SAC time markers.
