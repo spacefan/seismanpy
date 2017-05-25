@@ -11,3 +11,4 @@ seismanpy
    :caption: Contents:
 
    seismanpy.sac
+   seismanpy.source
