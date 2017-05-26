@@ -58,7 +58,7 @@ def _check_tmark(tmark):
     '''
     tmark = tmark.upper()
     if len(tmark) == 1:
-        return tmark in ('B', 'E', 'A', 'O', 'E')
+        return tmark in ('B', 'E', 'A', 'O', 'F')
     elif len(tmark) == 2 and tmark[0] == 'T':
         return tmark[1].isdigit()
     else:
