@@ -56,10 +56,10 @@ def _check_tmark(tmark):
     >>> _check_tmark('T11')
     False
     '''
-    tmark = tmark.upper()
+    tmark = tmark.lower()
     if len(tmark) == 1:
-        return tmark in ('B', 'E', 'A', 'O', 'F')
-    elif len(tmark) == 2 and tmark[0] == 'T':
+        return tmark in ('b', 'e', 'a', 'o', 'f')
+    elif len(tmark) == 2 and tmark[0] == 't':
         return tmark[1].isdigit()
     else:
         return False
@@ -69,10 +69,10 @@ def _parse_time(value):
     '''Parse time in ``Tn+-xx`` format.
 
     >>> _parse_time('T0+20')
-    ('T0', 20.0)
+    ('t0', 20.0)
 
     >>> _parse_time('T3-5.5')
-    ('T3', -5.5)
+    ('t3', -5.5)
 
     >>> _parse_time('T11-5')
     Traceback (most recent call last):
@@ -89,7 +89,7 @@ def _parse_time(value):
     try:
         tmark, offset = value.split('+')
         if _check_tmark(tmark):
-            return tmark, float(offset)
+            return tmark.lower(), float(offset)
     except ValueError:
         pass
 
@@ -97,7 +97,7 @@ def _parse_time(value):
     try:
         tmark, offset = value.split('-')
         if _check_tmark(tmark):
-            return tmark, -float(offset)
+            return tmark.lower(), -float(offset)
     except ValueError:
         pass
 
