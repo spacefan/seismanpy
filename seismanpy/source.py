@@ -6,7 +6,8 @@ import numpy as np
 from obspy.core.event.source import farfield
 
 
-def radiation_pattern(mt, takeoff_angle, azimuth, wavetype='P', system='RTP'):
+def radiation_pattern(mt, takeoff_angle, azimuth, wavetype='P', system='RTP',
+                      normalize=False):
     """Wrapper of obspy.core.event.source.farfield.
 
     Parameters
@@ -21,6 +22,8 @@ def radiation_pattern(mt, takeoff_angle, azimuth, wavetype='P', system='RTP'):
         Specify wave type, 'P' or 'S'
     system: str
         Coordinate system of mt, NED|USE|RTP
+    normalize: bool
+        Return normalized radiation pattern
 
     Returns
     -------
@@ -65,6 +68,9 @@ def radiation_pattern(mt, takeoff_angle, azimuth, wavetype='P', system='RTP'):
     disp = farfield(ned_mt, ray, wavetype)
     mag = np.sqrt(np.sum(disp * disp, axis=0))[0]
 
+    if normalize:
+        mag /= get_scalar_moment(ned_mt)
+
     return mag
 
 
@@ -96,6 +102,14 @@ def phase_radiation_pattern(mt, system='RTP', phase_list=None,
     mag_list = [mag_dict[phasename] for phasename in phase_list]
 
     return mag_list
+
+
+def get_scalar_moment(mt):
+
+    mt2 = fullmt(mt)
+    moment = np.sqrt(np.sum(mt2*mt2)/2.0)
+
+    return moment
 
 
 def mt_converter(mt, system_in='RTP', system_out='RTP'):
