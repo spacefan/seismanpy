@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>seismanpy.source &mdash; seismanpy 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="seismanpy 0.1.0 documentation" href="index.html"/>
+        <link rel="prev" title="seismanpy.sac" href="seismanpy.sac.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> seismanpy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="seismanpy.sac.html">seismanpy.sac</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">seismanpy.source</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">seismanpy</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>seismanpy.source</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/seismanpy.source.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-seismanpy.source">
+<span id="seismanpy-source"></span><h1>seismanpy.source<a class="headerlink" href="#module-seismanpy.source" title="Permalink to this headline">¶</a></h1>
+<p>Source related functions</p>
+<dl class="function">
+<dt id="seismanpy.source.radiation_pattern">
+<code class="descclassname">seismanpy.source.</code><code class="descname">radiation_pattern</code><span class="sig-paren">(</span><em>mt</em>, <em>takeoff_angle</em>, <em>azimuth</em>, <em>wavetype=’P’</em>, <em>system=’RTP’</em>, <em>normalize=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seismanpy/source.html#radiation_pattern"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seismanpy.source.radiation_pattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper of obspy.core.event.source.farfield.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>)</em>) – Six component moment tensor ([Mxx, Myy, Mzz, Mxy, Mxz, Myz])</li>
+<li><strong>takeoff_angle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>)</em>) – Takeoff angle of seismic ray (in degree)</li>
+<li><strong>azimuth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>)</em>) – Azimuth of seismic ray (in degree)</li>
+<li><strong>wavetype</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Specify wave type, ‘P’ or ‘S’</li>
+<li><strong>system</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Coordinate system of mt, NED|USE|RTP</li>
+<li><strong>normalize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.6)"><em>bool</em></a>) – Return normalized radiation pattern</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Magnitude of radiation pattern</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-examples admonition">
+<p class="first admonition-title">Examples</p>
+<ol class="last arabic">
+<li><p class="first">Explosion source:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mt</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mag</span> <span class="o">=</span> <span class="n">radiation_pattern</span><span class="p">(</span><span class="n">mt</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="n">wavetype</span><span class="o">=</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="s1">&#39;RTP&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mag</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Event 2001/6/23 20:34:23</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mt</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.245</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.547</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.698</span><span class="p">,</span> <span class="mf">1.339</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.728</span><span class="p">,</span> <span class="mf">1.444</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mag_P</span> <span class="o">=</span> <span class="n">radiation_pattern</span><span class="p">(</span><span class="n">mt</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">wavetype</span><span class="o">=</span><span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="s1">&#39;RTP&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mag_P</span><span class="p">)</span>
+<span class="go">0.92058159502</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mag_S</span> <span class="o">=</span> <span class="n">radiation_pattern</span><span class="p">(</span><span class="n">mt</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">wavetype</span><span class="o">=</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="n">system</span><span class="o">=</span><span class="s1">&#39;RTP&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mag_S</span><span class="p">)</span>
+<span class="go">3.66100655525</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="seismanpy.source.phase_radiation_pattern">
+<code class="descclassname">seismanpy.source.</code><code class="descname">phase_radiation_pattern</code><span class="sig-paren">(</span><em>mt</em>, <em>system=’RTP’</em>, <em>phase_list=None</em>, <em>source_depth_in_km=None</em>, <em>distance_in_degree=None</em>, <em>azimuth=None</em>, <em>model=’ak135’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seismanpy/source.html#phase_radiation_pattern"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seismanpy.source.phase_radiation_pattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calcuate radiated amplitude of seismic phases</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mt</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.422</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.689</span><span class="p">,</span> <span class="mf">0.267</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.432</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.284</span><span class="p">,</span> <span class="mf">0.377</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">phase_radiation_pattern</span><span class="p">(</span><span class="n">mt</span><span class="p">,</span> <span class="n">phase_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PcP&#39;</span><span class="p">,</span> <span class="s1">&#39;PKiKP&#39;</span><span class="p">],</span>
+<span class="gp">... </span>                        <span class="n">source_depth_in_km</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">distance_in_degree</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+<span class="gp">... </span>                        <span class="n">azimuth</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="go">[0.35494640676390243, 0.41287695358633075]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="seismanpy.source.get_scalar_moment">
+<code class="descclassname">seismanpy.source.</code><code class="descname">get_scalar_moment</code><span class="sig-paren">(</span><em>mt</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seismanpy/source.html#get_scalar_moment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seismanpy.source.get_scalar_moment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="seismanpy.source.mt_converter">
+<code class="descclassname">seismanpy.source.</code><code class="descname">mt_converter</code><span class="sig-paren">(</span><em>mt</em>, <em>system_in=’RTP’</em>, <em>system_out=’RTP’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seismanpy/source.html#mt_converter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seismanpy.source.mt_converter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moment tensor conversion between different coordinate systems</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)"><em>list</em></a><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a><em>)</em>) – Six component moment tensor ([Mxx, Myy, Mzz, Mxy, Mxz, Myz])</li>
+<li><strong>system_in</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Coordinate system of input moment tensor</li>
+<li><strong>system_out</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.6)"><em>str</em></a>) – Coordinate system of output moment tensor</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Six component moment tensor ([Mxx, Myy, Mzz, Mxy, Mxz, Myz])</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.6)">list</a>(<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.6)">float</a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-examples admonition">
+<p class="first admonition-title">Examples</p>
+<ol class="last arabic">
+<li><p class="first">Convert from RTP to NED</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mt_converter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">system_in</span><span class="o">=</span><span class="s1">&#39;RTP&#39;</span><span class="p">,</span> <span class="n">system_out</span><span class="o">=</span><span class="s1">&#39;NED&#39;</span><span class="p">)</span>
+<span class="go">[2, 3, 1, -6, 4, -5]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Convert from NED to RTP</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mt_converter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">system_in</span><span class="o">=</span><span class="s1">&#39;NED&#39;</span><span class="p">,</span> <span class="n">system_out</span><span class="o">=</span><span class="s1">&#39;RTP&#39;</span><span class="p">)</span>
+<span class="go">[3, 1, 2, 5, -6, -4]</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="seismanpy.source.fullmt">
+<code class="descclassname">seismanpy.source.</code><code class="descname">fullmt</code><span class="sig-paren">(</span><em>mt</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seismanpy/source.html#fullmt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seismanpy.source.fullmt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes 6 comp moment tensor and returns full 3x3 moment tensor</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fullmt</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="go">array([[1, 4, 5],</span>
+<span class="go">       [4, 2, 6],</span>
+<span class="go">       [5, 6, 3]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="seismanpy.sac.html" class="btn btn-neutral" title="seismanpy.sac" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Dongdong Tian.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
